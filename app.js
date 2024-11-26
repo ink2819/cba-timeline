@@ -311,3 +311,42 @@ $(document).ready(function() {
     loadFineArtData();
 });
 
+$(document).ready(function () {
+    // Listen for clicks on event cards
+    $(".eventcard").click(function () {
+        const cardId = $(this).attr("id"); // Get the ID of the clicked card
+
+        // Define content for each card
+        let leftContent = "";
+        let rightContent = "";
+
+        if (cardId === "eventcard1") {
+            // Content for event card 1
+            leftContent = `
+                <div class="cell">
+                    <img src="https://www.centerforbookarts.net/exhibits/archive/catalogs/exh80/exh_80_cat_c1.jpg">
+                </div>
+                <div class="cell">
+                    <img src="https://www.centerforbookarts.net/exhibits/archive/catalogs/exh80/exh_80_cat_p23.jpg">
+                </div>`;
+            rightContent = `
+                <p>
+                    Center for Book Arts: The First Decade is an exhibition at The New York Public Library which ran from September 7, 1984 - November 29, 1984. This exhibition, celebrating the tenth anniversary of the Center for Book Arts in New York, illustrates these movements in its display of 132 works by 112 artists, selected from the work of the Center's almost one thousand members. The exhibition is not intended as a retrospective but rather as an overview of members' diverse approaches to contemporary book art and, to a great degree, of their current interests.
+                </p>`;
+        } else if (cardId === "eventcard2") {
+            // Content for event card 2
+            leftContent = `
+                <div class="cell">
+                    <img src="https://images1.loopnet.com/i2/9osDD0JihqGljWk3jOZRmF1oC6BZggVgIY73uRhbaJo/110/image.jpg">
+                </div>`;
+            rightContent = `
+                <p>
+                    In 1984, the Center relocated to 626 Broadway, a short walk from the original location. In addition to a gallery, print shop, bindery, and library, the renovated space (over 5,000 square feet) included five private studios ranging in size from 100 to 250 square feet.
+                </p>`;
+        }
+
+        // Populate the summary divs
+        $("#event-left-info").html(leftContent);
+        $("#event-right-info").html(rightContent);
+    });
+});
