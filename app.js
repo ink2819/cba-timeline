@@ -307,6 +307,11 @@ $(document).ready(function() {
             });
     }
 
+    // Initialize data loading
+    loadExhibitionsFromCSV();
+    loadFineArtData();
+});
+
 $(document).ready(function () {
     // Listen for clicks on event cards
     $(".eventcard").click(function () {
@@ -346,8 +351,3 @@ $(document).ready(function () {
         $("#event-right-info").html(rightContent);
     });
 });
-    // Initialize data loading
-    loadExhibitionsFromCSV();
-    loadFineArtData();
-});
-
