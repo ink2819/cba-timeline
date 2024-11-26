@@ -115,6 +115,7 @@ $(document).ready(function() {
                 d3.select("#object-title").text(d.title);
                 d3.select("#object-type").text('Object Type: ' + d.obj_type);
                 d3.select("#creator").text(d['created by'] || 'Unknown creator');
+                d3.select("#description").text(d.Description);
             });
     }
 
