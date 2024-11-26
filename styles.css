@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  height: flex;
+  background-color: rgb(251, 251, 242);
+  color: brown;
+  overflow: auto;
+  position: relative;
+}
+
+h1 {
+  text-align: left;
+  margin-left: 30px;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 30px;
+}
+h3 {
+  text-align: left;
+  margin-left: 30px;
+
+}
+
+.cards {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-self: center;
+  display:flex;
+  gap:8px;
+  width: 98%;
+  max-width: flex;
+  height: flex;
+  align-items: center;
+}
+.card {
+  flex-basis: 6px;
+  height: 420px;
+  max-width: 100px;
+  overflow: hidden;
+  background-color: beige;
+  opacity: 1;
+  border: 2px solid brown;
+
+  display: flex;
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --transition-timing: 0.35s;
+  transition: transform 0.5s ease, flex-grow 0.3s ease; /* Add transform to transition */
+  transform-style: preserve-3d; /* Preserve 3D for rotation effect */
+}
+
+[data-year="1974"],[data-year="1975"],[data-year="1985"], [data-year="1990"], [data-year="1999"]{
+  background-color: darkorange;
+}
+
+.card:not(.active):hover {
+  flex-grow: 6;
+}
+
+.cards .card.active{
+  flex-grow: 25;
+  min-width: 350px;
+  max-width: 400px;
+  height: 420px;
+  transition:cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: darkorange;
+  gap:1px;
+  transform: perspective(800px) rotateY(10deg) scale(1, 0.95);
+  overflow-y: auto;
+}
+
+.card.active::-webkit-scrollbar{
+  width: 11px;
+  background-color: lightsalmon;
+}
+
+.card.active::-webkit-scrollbar-thumb{
+  background-color: darkorange;
+  border-left: 2px solid brown;
+  border-top: 2px solid brown;
+  border-bottom: 2px solid brown;
+}
+
+.card > .card-content {
+  display: flex;
+  align-items: flex;
+  position: flex;
+  right: 10px;
+  overflow: hidden;
+  transition: var(--transition-timing);
+  z-index: 10;
+}
+.card:hover > .card-content {
+  inset: 20px;
+  top: auto;
+}
+
+
+
+.card-content > * {
+  transition: var(--transition-timing);
+}
+
+.card-content >.info {
+  left: 30px;
+  top: 30px;
+  right: 20px;
+  position: absolute;
+  line-height: 200%;
+  opacity: 0;
+  overflow:hidden;
+}
+
+.card.active .info{
+  opacity:1;
+  translate:0 0;
+}
+
+.card-content > .icon {
+  margin-left: 10px;
+  margin-bottom: 15px;
+  width: 5px;
+  height: 5px;
+  border: 2px solid brown;
+  align-self:flex-end;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card:not(.active):hover .icon{
+  width: 15px;
+  height: 15px;
+  border: 2px solid brown;
+}
+
+
+.card-content > .title {
+  opacity: 0;
+  transform: rotate(-90deg);
+  margin-left:-20px;
+  margin-bottom: -20px;
+  align-self: center;
+  overflow: hidden;
+}
+.card:not(.active):hover .title {
+  opacity: 1;
+  color: brown;
+  font-size: flex;
+  overflow: visible;
+}
+
+.card.active .title {
+  opacity: 1;
+  font-size: 80%;
+}
+
+.card-content .exhibitions{
+  text-decoration: underline;
+}
+
+.spacer{
+  height: 50px;
+  border-top: 2px solid brown;
+  border-bottom: 2px solid brown;
+}
+
+.blank-spacer{
+  height: 20px;
+}
+.oneline-spacer{
+  height: 10px;
+  border-top: 2px solid brown;
+}
+.data{
+  height: 700px;
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin: 50px;
+  
+}
+
+.data-heading{
+  align-self: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 50px;
+  font-size: 200%;
+}
+.viz {
+    height: 700px; 
+    width: 50%;     /* Adjust width accordingly */
+    margin: 20px;
+    letter-spacing: 2px;
+}
+
+.timeline-viz{
+  bottom: 10px;
+  height: fit-content;
+  width: 100%;
+  position:sticky;
+  margin-bottom: 20px;
+}
+
+#object-title {
+  margin: 20px;
+}
+
+#creator {
+  font-style: italic;
+  margin: 20px;
+}
+
+
+.object-type-definition {
+  top: 300px;
+  left: 50%;
+  right: 20px;
+  position:relative;
+  text-align: justify;
+  width: 50%;
+}
+
+#object-type{
+  text-align: right;
+}
+
+
+.obj-timeline-heading{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 200%;
+  letter-spacing: 30px;
+}
+
+.obj-timeline-description{
+  text-align: center;
+}
+
+.exhibition-info{
+  margin-left: 30px;
+  top: 400px;
+  position:relative;
+  text-align: justify;
+  width: 80%;
+}
+
+#right-exhibition-cards{
+  height: 200px;
+}
+
+#network-viz {
+  border: 2px solid brown;
+  height: 300px;
+}
+
+.exhibition-timeline-viz{
+  align-self: center;
+  height: 600px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+#eventcards{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 98%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 80px;
+}
+.eventcard {
+  height: 200px;
+  width: 150px;
+  background-color: orange;
+  opacity: 1;
+  border: 2px solid brown;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  position: relative; 
+  transition: transform 0.5s ease; 
+}
+
+.eventcard > .eventicon {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border: 2px solid brown;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eventcard.active{
+  background-color: brown;
+  border: 2px solid orange;
+  transform: perspective(800px) rotateY(180deg);
+}
+
+.eventcard.active .eventicon{
+  visibility: hidden;
+}
+.eventcard:not(.active) .eventtitle{
+  visibility: hidden;
+}
+.eventcard.active .eventtitle{
+  color: aliceblue;
+}
+
+.summary {
+  height: 700px; 
+  width: 50%;    
+  margin: 20px;
+  letter-spacing: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: hidden;
+  position:relative;
+}
+
+#event-left-info {
+  align-content: right;
+}
+
+.cell{
+  align-self: flex-end;
+  flex-basis: 300px;
+  width: fit-content;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+img{
+  height: 100%;
+  width: auto;
+}
+
+.expand {
+  text-align: center;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.9s ease;
+  width: 80%;
+  justify-self: center;
+}
+.expand.active {
+  max-height: fit-content; 
+  opacity: 1;
+  visibility: visible;
+}
+
+.data-heading{
+  text-align: center;
+}
+
+header{
+  top: 0;
+  padding: 10px 16px;
+  height: fit-content;
+  width: 100%;
+  position: fixed;
+}
+
+
+.menu{
+  top:10px;
+  justify-self: right;
+  right: 20px;
+  position: sticky;
+  z-index: 99;
+}
+
+.button{
+  margin: 20px;
+  height: 50px;
+  width: 100px;
+  color: brown;
+  display: inline-flex;
+}
