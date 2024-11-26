@@ -229,9 +229,14 @@ h3 {
   margin: 20px;
 }
 
+#description {
+  text-align: left;
+  margin-left: 10px;
+}
+
 
 .object-type-definition {
-  top: 300px;
+  top: 50px;
   left: 50%;
   right: 20px;
   position:relative;
