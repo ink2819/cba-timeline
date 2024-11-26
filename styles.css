@@ -63,7 +63,7 @@ h3 {
   transform-style: preserve-3d; /* Preserve 3D for rotation effect */
 }
 
-[data-year="1974"],[data-year="1975"],[data-year="1985"], [data-year="1990"], [data-year="1999"]{
+[data-year="1974"],[data-year="1975"],[data-year="1976"],[data-year="1977"],[data-year="1980"],[data-year="1984"],[data-year="1985"],[data-year="1987"],[data-year="1990"],[data-year="1993"],[data-year="1994"],[data-year="1999"],[data-year="2003"],[data-year="2005"], [data-year="2022"]{
   background-color: darkorange;
 }
 
@@ -195,6 +195,10 @@ h3 {
   
 }
 
+#event-data{
+  height: 300px;
+}
+
 .data-heading{
   align-self: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -312,7 +316,7 @@ h3 {
 }
 
 .eventcard.active{
-  background-color: brown;
+  background-color: cornsilk;
   border: 2px solid orange;
   transform: perspective(800px) rotateY(180deg);
 }
@@ -328,14 +332,14 @@ h3 {
 }
 
 .summary {
-  height: 700px; 
+  height: 300px; 
   width: 50%;    
   margin: 20px;
   letter-spacing: 2px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  overflow: hidden;
+  overflow: wrap;
   position:relative;
 }
 
