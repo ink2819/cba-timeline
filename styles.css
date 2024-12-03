@@ -17,6 +17,11 @@ body {
   position: relative;
 }
 
+a {
+  color: brown;
+  text-decoration: none;
+}
+
 h1 {
   text-align: left;
   margin-left: 30px;
@@ -30,6 +35,37 @@ h3 {
   text-align: left;
   margin-left: 30px;
 
+}
+
+#About{
+  z-index: 98;
+  bottom:30px;
+  justify-self: right;
+  right: 30px;
+  position: fixed;
+  border: 2px dashed brown;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+}
+
+#CBA{
+  z-index: 98;
+  bottom:150px;
+  justify-self: right;
+  right: 30px;
+  position: fixed;
+  border: 2px dashed brown;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 10px;
 }
 
 .cards {
@@ -172,6 +208,26 @@ h3 {
   text-decoration: underline;
 }
 
+.instruction{
+  padding: 20px;
+  margin:30px;
+  height:20px;
+  justify-self: center;
+}
+
+#instruction_1.active{
+  visibility: hidden;
+  text-align: center;
+  margin-left: 0;
+}
+
+#instruction_2.active{
+  visibility: hidden;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
 .spacer{
   height: 50px;
   border-top: 2px solid brown;
@@ -179,14 +235,18 @@ h3 {
 }
 
 .blank-spacer{
-  height: 20px;
+  height: 50px;
+}
+
+.large-blank-spacer{
+  height: 350px;
 }
 .oneline-spacer{
   height: 10px;
   border-top: 2px solid brown;
 }
 .data{
-  height: 700px;
+  height: 800px;
   width:90%;
   display: flex;
   flex-direction: row;
@@ -194,6 +254,7 @@ h3 {
   margin: 50px;
   
 }
+
 
 #event-data{
   height: 300px;
@@ -206,17 +267,23 @@ h3 {
   font-size: 200%;
 }
 .viz {
-    height: 700px; 
-    width: 50%;     /* Adjust width accordingly */
+    height: fit-content;
+    width: 50%;   
     margin: 20px;
     letter-spacing: 2px;
+}
+
+#left-viz{
+  justify-self: center;
+  align-self: center;
+  height: 700px;
+  overflow: visible;
 }
 
 .timeline-viz{
   bottom: 10px;
   height: fit-content;
   width: 100%;
-  position:sticky;
   margin-bottom: 20px;
 }
 
@@ -229,20 +296,29 @@ h3 {
   margin: 20px;
 }
 
+#description {
+  text-align: left;
+  margin-left: 20px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+#object-identity{
+  height: 200px;
+  overflow: auto;
+}
 
 .object-type-definition {
-  top: 300px;
-  left: 50%;
-  right: 20px;
-  position:relative;
-  text-align: justify;
-  width: 50%;
+  top: 50px;
+  position: relative;
+  text-align: left;
+  margin-left: 30px;
 }
 
 #object-type{
-  text-align: right;
+  margin-left: 0px;
+  margin-bottom: 20px;
 }
-
 
 .obj-timeline-heading{
   text-align: center;
@@ -293,7 +369,7 @@ h3 {
 .eventcard {
   height: 200px;
   width: 150px;
-  background-color: orange;
+  background-color:antiquewhite;
   opacity: 1;
   border: 2px solid brown;
   cursor: pointer;
@@ -316,8 +392,7 @@ h3 {
 }
 
 .eventcard.active{
-  background-color: cornsilk;
-  border: 2px solid orange;
+  background-color: darkorange;
   transform: perspective(800px) rotateY(180deg);
 }
 
@@ -369,7 +444,7 @@ img{
   visibility: hidden;
   overflow: hidden;
   transition: max-height 0.2s ease, opacity 0.9s ease;
-  width: 80%;
+  width: 100%;
   justify-self: center;
 }
 .expand.active {
@@ -378,6 +453,23 @@ img{
   visibility: visible;
 }
 
+.expandDetail{
+  text-align: center;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.9s ease;
+  width: 80%;
+  justify-self: center;
+}
+
+.expandDetail.active{
+  max-height: fit-content; 
+  opacity: 1;
+  visibility: visible;
+  border:2px solid brown;
+}
 .data-heading{
   text-align: center;
 }
@@ -389,7 +481,9 @@ header{
   width: 100%;
   position: fixed;
 }
-
+.summary{
+  text-align: left;
+}
 
 .menu{
   top:10px;
@@ -399,10 +493,68 @@ header{
   z-index: 99;
 }
 
-.button{
+.menuitem{
   margin: 20px;
   height: 50px;
   width: 100px;
   color: brown;
   display: inline-flex;
+  cursor: pointer;
+}
+
+#expandStoryMenu{
+  justify-self: center;
+  z-index: 99;
+  padding-bottom:150px;
+}
+
+.button{
+  margin-top: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 0px;
+  background-color: antiquewhite;
+  color: brown;
+  display: inline-flex;
+  border: 2px solid brown;
+  justify-content: center;
+  font-size: large;
+  padding: 20px;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+.button.active{
+  background-color: darkorange;
+  color: brown;
+  border-bottom: 0px;
+  height: 100px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border: 2px dashed brown;
+  border-radius: 50%;
+}
+
+#network-dashboard{
+  width: 100%;
+  height: fit-content;
+  margin: 0px;
+}
+
+#exhibitionNetworkList{
+  height: fit-content;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: auto;
+  width: 100%;
+}
+
+.network_icon{
+  width: 200px;
 }

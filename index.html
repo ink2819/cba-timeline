@@ -7,36 +7,152 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <div class="menu"> 
-    <div class="button">
-        <p>ABOUT</p>
-    </div>
-    <div class="button">
-        <p>PROJECTS</p>
-    </div>
-    <div class="button">
-        <p>CBA</p>
-    </div>
-    <div class="button">
-        <h2 id="yearTitle"></h2>
+    <div class="menuitem">
+        <h1 id="yearTitle"></h1>
     </div>
 </div>
+    <div id="About">
+        <a href="https://studentwork.prattsi.org/bookarts/sample-page/"><p>ABOUT</p></a>
+    </div>
+    <div id="CBA">
+        <a href="https://centerforbookarts.org/"><p>CBA WEBSITE</p></a>
+    </div>
 
 <body>
     <header>
     <h1>50 YEARS OF CBA</h1>
     <h2>A TIMELINE</h2>
     </header>
+
     
     <div class="cards" id="cardsContainer">
     </div>
-    <div class="timeline-viz2">
-    </div>
+
+
     <div class="expand">
+        <div class="spacer"> 
+        </div>
+        <h2 class="data-heading">THIS YEAR AT CBA</h2>
+        <div class="spacer"> 
+        </div>
+   
+    <div id="eventcards">
+        <div class="eventcard" id="eventcard1">
+            <div class="eventicon"></div>
+        </div>
+        <div class="eventcard" id="eventcard2">
+            <div class="eventicon"></div>
+        </div>
+    </div>
+    <div class="data" id="event-data">
+        <div class="summary" id="event-left-info"></div>
+        <div class="summary" id="event-right-info"></div>
+    </div>
+    <div class="blank-spacer"> </div>
     <div class="spacer"> 
     </div>
-    <h2 class="data-heading">THIS YEAR AT CBA</h2>
+    <h2 class="data-heading">DATA THIS YEAR</h2>
     <div class="spacer"> 
     </div>
+    <div id="expandStoryMenu">
+        <div class="instruction">
+            <h3 id="instruction_2">choose a perspective to explore this year's data</h3>
+    </div>
+        <div class="button" id="artistsbooks">
+            <div class="icon"></div>
+            <h4>ARTISTS' BOOKS</h4>
+        </div>
+        <div class="button" id="exhibitions">
+            <div class="icon"></div>
+            <h4>EXHIBITIONS</h4>
+        </div>
+        <div class="button" id="networks">
+            <div class="icon"></div>
+            <h4>NETWORKS</h4>
+        </div>
+
+
+    <div class = "expandDetail" id="expandArtistsBooks">
+        <div class="blank-spacer"> </div>
+        <h2 class="data-heading">OBJECT COUNTS</h2>
+        <div class="blank-spacer"> </div>
+        <h3 class="obj-timeline-description">CBA’s Fine Art Collection, 1974-2024</h3>
+        <div class="blank-spacer"> </div>
+        <div class="timeline-viz">
+        </div>
+        <div class="blank-spacer"> </div>
+        <div class="oneline-spacer"> </div>
+    
+        <div class="data">
+            <div class="viz" id="left-viz"></div> 
+            <div class="viz" id="right-viz">
+                <div id="object-identity">
+                <h2 id="object-title"></h2>
+                <h3 id="creator"></h3>
+            </div>
+                <p id="description"></p>
+                <div class="object-type-definition">
+                <h3 id="object-type"></h3> 
+                <p>A sheet of paper printed on one side only. Historically, broadsides were cheap print used as posters, announcing events or proclamations, commentary in the form of ballads, or advertisements.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class ="expandDetail" id="expandExhibitions">
+        <div class="blank-spacer"> 
+        </div>
+        <h2 class="data-heading">EXHIBITION COUNTS</h2>
+        <div class="blank-spacer"> 
+        </div>
+        <div class="exhibition-timeline-viz">
+        </div>
+        <div class="oneline-spacer"> </div>
+        <div class="blank-spacer"></div>
+        <h2 class="data-heading">EXHIBITIONS</h2>
+        <div class="blank-spacer"> 
+        </div>
+    
+        <div class="data">
+            <div class="viz" id="left-exhibition-viz">
+                <h2 id="exhibition-title"></h2>
+                <div class="exhibition-info">
+                <p id="exhibition-address">
+                </p>
+                <p id="exhibition-date">
+                </p>
+                </div>
+            </div> 
+            <div class="viz" id="right-exhibition-viz">
+                <div id="right-exhibition-cards"></div>
+                <div id="network-viz">
+                    <img src="https://github.com/ink2819/cba-timeline/blob/main/1984.png?raw=true">
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class ="expandDetail" id="expandNetworks">
+        <div class="data" id="network-dashboard">
+            <div class="viz" id="network-dashboard">
+                <div class="network-list" id="exhibitionNetworkList">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="instruction" id="instruction1">
+        <h3 id="instruction_1">choose a year from the timeline to start</h3>
+    </div>
+</div>
+
+
+    
+        <!-- <div class="spacer"> 
+        </div>
+        <h2 class="data-heading">THIS YEAR AT CBA</h2>
+        <div class="spacer"> 
+        </div>
+   
     <div id="eventcards">
         <div class="eventcard" id="eventcard1">
             <div class="eventicon"></div>
@@ -61,6 +177,7 @@
         <div class="viz" id="right-viz">
             <h2 id="object-title"></h2>
             <h3 id="creator"></h3>
+            <p id="description"></p>
             <div class="object-type-definition">
             <h3 id="object-type"></h3> 
             <p>A sheet of paper printed on one side only. Historically, broadsides were cheap print used as posters, announcing events or proclamations, commentary in the form of ballads, or advertisements.</p>
@@ -108,7 +225,7 @@
     </div>
     <div class="exhibition-timeline-viz">
     </div>
-    </div>
+    </div> -->
 
     </script>
         <script src="https://d3js.org/d3.v7.min.js"></script>

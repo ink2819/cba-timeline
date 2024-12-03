@@ -65,6 +65,7 @@ $(document).ready(function() {
             $('.card').removeClass('active');
             $(this).addClass('active');
             $('.expand').addClass('active');
+            $('#instruction_1').addClass('active')
             const year = $(this).data('year');
             const yearTitle = d3.select("#yearTitle"); 
             yearTitle.text(""); 
@@ -115,6 +116,7 @@ $(document).ready(function() {
                 d3.select("#object-title").text(d.title);
                 d3.select("#object-type").text('Object Type: ' + d.obj_type);
                 d3.select("#creator").text(d['created by'] || 'Unknown creator');
+                d3.select("#description").text(d.Description);
             });
     }
 
@@ -349,4 +351,61 @@ $(document).ready(function () {
         $("#event-left-info").html(leftContent);
         $("#event-right-info").html(rightContent);
     });
+});
+
+$(document).ready(function () {
+    // Handle mouseover for each button to update the instruction text
+    $(".button").hover(
+        function () {
+            // Get the ID of the hovered button
+            const buttonId = $(this).attr("id");
+            let instructionText = "";
+
+            // Set the appropriate instruction based on the button
+            if (buttonId === "artistsbooks") {
+                instructionText =
+                    "As a leading institution in the book arts, CBA is committed to maintaining and growing collections of artists' books. Click to see how CBA's fine art collection grew over 50 years.";
+            } else if (buttonId === "exhibitions") {
+                instructionText =
+                    "Exhibitions at CBA celebrate the legacy of book arts and explore innovative new works. Click to see a timeline of exhibitions over 50 years.";
+            } else if (buttonId === "networks") {
+                instructionText =
+                    "Networks in the book arts connect artists, institutions, and audiences. Click to explore the connections CBA fostered over 50 years.";
+            }
+
+            // Update the instruction text
+            $("#instruction_2").text(instructionText);
+        }
+    );
+
+    // Handle button clicks to activate the corresponding div
+    $(".button").click(function () {
+        $('.button').removeClass('active');
+            $(this).addClass("active");       
+        $("#expandArtistsBooks, #expandExhibitions, #expandNetworks").removeClass("active");
+        $("#instruction_2").addClass('active'); 
+
+        // Add the active class to the corresponding div based on the button clicked
+        if (this.id === "artistsbooks") {
+            $("#expandArtistsBooks").addClass("active");
+            
+        } else if (this.id === "exhibitions") {
+            $("#expandExhibitions").addClass("active");; 
+        } else if (this.id === "networks") {
+            $("#expandNetworks").addClass("active"); 
+        }
+
+    });
+});
+
+$(document).ready(function () {
+    const exhibitionNetworkList = $('#exhibitionNetworkList');
+    const startYear = 1978;
+    const endYear = 2024;
+
+    for (let year = startYear; year <= endYear; year++) {
+        const networkForYear = `https://raw.githubusercontent.com/ink2819/cba-timeline/refs/heads/main/networks/exhibition_icons/${year}.png`;
+        const exhibitionNetworkListHtml = `<img class="network_icon" src="${networkForYear}" alt="Network icon for ${year}">`;
+        exhibitionNetworkList.append(exhibitionNetworkListHtml);
+    }
 });
