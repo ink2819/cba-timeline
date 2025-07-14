@@ -21,15 +21,48 @@ $(document).ready(function() {
 
     // Load and parse the fine art objects CSV
     function loadFineArtData() {
-        Papa.parse("https://raw.githubusercontent.com/ink2819/cba-timeline/refs/heads/main/cba_fineart_object.csv", {
-            download: true,
-            header: true,
-            complete: function(results) {
-                fineArtData = results.data;
-                createTimelineBarChart(fineArtData); // Generate timeline bar chart
-            }
-        });
-    }
+    Papa.parse("https://raw.githubusercontent.com/ink2819/cba-timeline/refs/heads/main/cba_fineart_object.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+            fineArtData = results.data; // ← set global variable
+
+            Papa.parse("object_type_definitions.csv", {
+                download: true,
+                header: true,
+                complete: function(defResults) {
+                    let definitions = defResults.data;
+
+                    let defMap = {};
+                    definitions.forEach(def => {
+                        defMap[def.object_type] = {
+                            definition: def.definition,
+                            source: def.source
+                        };
+                    });
+
+                    fineArtData.forEach(obj => {
+                        let match = defMap[obj.obj_type];
+                        if (match) {
+                            obj.obj_definition = match.definition;
+                            obj.definition_source = match.source;
+                        } else {
+                            obj.obj_definition = "";
+                            obj.definition_source = "";
+                        }
+                    });
+
+                    // ✅ Move chart generation and logging *here*
+                    createTimelineBarChart(fineArtData);
+                    console.log("Enriched fineArtData:", fineArtData);
+                }
+            });
+        }
+    });
+}
+
+
+
 
     // Populate exhibitions by year dynamically
     function populateExhibitionsByYear(data) {
@@ -89,7 +122,6 @@ $(document).ready(function() {
         const colorScale = d3.scaleOrdinal()
             .domain([...new Set(fineArtData.map(d => d.obj_type))])
             .range(d3.schemeCategory10);
-
         const leftViz = d3.select("#left-viz");
         leftViz.selectAll("svg").remove();
 
@@ -116,6 +148,8 @@ $(document).ready(function() {
                 d3.select("#object-type").text('Object Type: ' + d.obj_type);
                 d3.select("#creator").text(d['created by'] || 'Unknown creator');
                 d3.select("#description").text(d.Description);
+                d3.select("#definition").text(d.obj_definition || 'No definition available');
+                console.log(d);
             });
     }
 

@@ -237,11 +237,11 @@ h3 {
 
 .object-type-definition {
   top: 50px;
-  left: 50%;
+  left: 20%;
   right: 20px;
   position:relative;
   text-align: justify;
-  width: 50%;
+  width: 80%;
 }
 
 #object-type{
