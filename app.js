@@ -149,6 +149,8 @@ $(document).ready(function() {
                 d3.select("#creator").text(d['created by'] || 'Unknown creator');
                 d3.select("#description").text(d.Description);
                 d3.select("#definition").text(d.obj_definition || 'No definition available');
+                d3.select("#object-link").attr("href", 'https://collections.centerforbookarts.org/Detail/objects/' + d.id || "#").text('→ View on CBA website');
+
                 console.log(d);
             });
     }
